@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing Machine Simulator - Penjumlahan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<a href="index.html"><button class="btnBack">Kembali</button></a>
+
+	
+	<div class="">
+		<h3>Format Input: 0<sup>n</sup>C0<sup>m</sup></h3>
+		<h3>Format Output: 0<sup>n+m</sup></h3>
+		<input type="number" name="num1" id="num1" autocomplete="off">
+		<h3 id="op">+</h3>
+		<input type="number" name="num2" id="num2" autocomplete="off">
+		<button onmousedown="execute()">=</button>
+		<h3 id="ans">0</h3>
+	</div>
+
+	<div class="tmTape-wrapper" id="tmTape">
+		<!-- tempat tape turing machine -->
+	</div>
+
+	<div class="form-wrapper">
+        <button disabled onmousedown="executePlay()" class="controller">Play</button>
+        <button disabled onmousedown="executePause()" class="controller">Pause</button>
+        <button disabled onmousedown="executeClear()" class="controller">Clear</button>
+        <button disabled onmousedown="executeNextMove()" class="controller">Next Move</button>
+    </div>
+
+    <script src="js/tapebuilder.js"></script>
+    <script src="js/jumlah.js"></script>
+</body>
+</html>

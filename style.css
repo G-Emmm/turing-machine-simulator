@@ -1,0 +1,32 @@
+.tmTape-wrapper {
+    max-width: 1200px;
+    min-height: 80px;
+    overflow: auto;
+
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+
+    margin: 2em auto;
+    padding: 1em 0 0;
+    position: relative;
+    display: flex;
+    gap: 5px;
+    align-items: flex-start;
+    justify-content: start;
+}
+
+/* TM element */
+.tmTape-wrapper > * {
+    margin: 0;
+    padding: .5em 1em;
+    font-size: 20pt;
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+}
+.result {
+    background-color: #643a3a;
+}
+.active {
+    background-color: #555;
+}
