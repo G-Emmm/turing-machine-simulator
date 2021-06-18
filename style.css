@@ -61,7 +61,7 @@ body {
   padding: 1em 0 0;
   position: relative;
   display: flex;
-  gap: 5px;
+  gap: 3px;
   align-items: flex-start;
   justify-content: start;
 }
@@ -69,11 +69,14 @@ body {
 /* TM element */
 .tmTape-wrapper > * {
   margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 0.5em 1em;
   font-size: 20pt;
   background-color: rgb(205, 119, 231);
   color: Black;
-  border-radius: 5px;
+  border-radius: 50%;
+  border: 1px solid #9000ff;
 }
 .active {
   background-color: #ffc8b0;
