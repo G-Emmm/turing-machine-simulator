@@ -10,11 +10,10 @@ let tapeCells = []; // Isi tape turing machine
 const tmTape = document.getElementById("tmTape");// Turing machine tape
 const controller = document.querySelectorAll(".controller");// Button controller
 
-// After click = button
-// Create TM blocks
+// tampilkan tape
 function execute() {
-    // Jika num1 dan num2 terisi
-    if (num1.value && num2.value) {
+    // jika kondisi terpenuhi
+    if (num1.value && num2.value && num1.value >= 0 && num2.value >= 0) {
         // Clear
         executeClear();
 
@@ -51,10 +50,6 @@ function execute() {
 
 // play button
 function executePlay() {
-    // also use fun scrollIntoView() to track active block
-    // use childNodes fun to activate by adding active class
-    // use setInterval(executeNextMove(), 500)
-
     // Enable button pause
     enableButton(1);
 
@@ -123,11 +118,10 @@ function disableButton(index) {
 
 // next move button
 function executeNextMove() {
-    
     // Penjumlahan
-        // Jika TM sudah terisi
+    // if exist
     if (tapeCells[0]) {
-        // Deactivate block
+        // Deactivate 
         curCell = document.getElementsByClassName("active");
         for (i = 0; i < curCell.length; i++) {
             curCell[i].className = curCell[i].className.replace(" active", "");
@@ -135,13 +129,13 @@ function executeNextMove() {
 
         // STATE 0
         if (state == 0) {
-            // 0, X / R
+            // 0, B / R
             if (tapeCells[it].symbol == "0") {
                 // Change textContent
-                tapeCells[it].changeTo("X");
-                tmTape.childNodes[it].textContent = "X";
+                tapeCells[it].changeTo("B");
+                tmTape.childNodes[it].textContent = "B";
 
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it + 1].scrollIntoView(false);
 
@@ -157,7 +151,7 @@ function executeNextMove() {
                 tapeCells[it].changeTo("B");
                 tmTape.childNodes[it].textContent = "B";
 
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it + 1].scrollIntoView(false);
 
@@ -173,7 +167,7 @@ function executeNextMove() {
         else if (state == 1) {
             // 0, 0 / R
             if (tapeCells[it].symbol == "0") {
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it + 1].scrollIntoView(false);
 
@@ -182,7 +176,7 @@ function executeNextMove() {
             }
             // C, C / R
             else if (tapeCells[it].symbol == "C") {
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it + 1].scrollIntoView(false);
 
@@ -198,7 +192,7 @@ function executeNextMove() {
         else if (state == 2) {
             // 0, 0 / R
             if (tapeCells[it].symbol == "0") {
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it + 1].scrollIntoView(false);
 
@@ -207,7 +201,7 @@ function executeNextMove() {
             }
             // B, 0 / L
             else if (tapeCells[it].symbol == "B") {
-                // Tambah blank block
+                // Tambah blank cell
                 tapeCells.push(new Cell("B"));
 
                 // Change textContent
@@ -215,9 +209,9 @@ function executeNextMove() {
                 tmTape.childNodes[it].textContent = "0";
 
                 // Result
-                tmTape.childNodes[it].className += " result";
+                // tmTape.childNodes[it].className += " result";
 
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it + 1].scrollIntoView(false);
 
@@ -233,7 +227,7 @@ function executeNextMove() {
         else if (state == 3) {
             // 0, 0 / L
             if (tapeCells[it].symbol == "0") {
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it - 1].scrollIntoView(false);
 
@@ -242,7 +236,7 @@ function executeNextMove() {
             }
             // C, C / L
             else if (tapeCells[it].symbol == "C") {
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it - 1].scrollIntoView(false);
 
@@ -258,16 +252,16 @@ function executeNextMove() {
         else if (state == 4) {
             // 0, 0 / L
             if (tapeCells[it].symbol == "0") {
-                // Activate block
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it - 1].scrollIntoView(false);
 
                 // Ke kiri
                 it--;
             }
-            // X, X / R
-            else if (tapeCells[it].symbol == "X") {
-                // Activate block
+            // B, B / R
+            else if (tapeCells[it].symbol == "B") {
+                // Activate cell
                 tmTape.childNodes[it].className += " active";
                 tmTape.childNodes[it - 1].scrollIntoView(false);
 
@@ -294,7 +288,7 @@ function executeNextMove() {
             disableButton(1);
             disableButton(3);
 
-            // Show answer in decimal
+            // Show answer
             showAns();
         }
     }
