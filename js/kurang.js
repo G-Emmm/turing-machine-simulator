@@ -4,7 +4,7 @@ let num2 = document.getElementById("num2");     // Number 2
 // tampilkan tape
 function execute() {
     // jika kondisi terpenuhi
-    if (num1.value && num2.value && num1.value >= 0 && num2.value >= 0) {
+    if (num1.value && num2.value && num1.value >= 0 && num2.value >= 0 && num1.value >= num2.value) {
         // Clear
         executeClear();
 
@@ -41,8 +41,8 @@ function execute() {
 
 // Show answer
 function showAns() {
-    // Penjumlahan
-    let ans = +num1.value + +num2.value;
+    // Pengurangan
+    let ans = num1.value - num2.value;
     
     // Menampilkan jawaban
     let ansField = document.getElementById("ans");
@@ -51,7 +51,7 @@ function showAns() {
 
 // next move button
 function executeNextMove() {
-    // Penjumlahan
+    // Pengurangan
     // if exist
     if (tapeCells[0]) {
         // Deactivate 
@@ -62,37 +62,42 @@ function executeNextMove() {
 
         // STATE 0
         if (state == 0) {
-            // 0, B / R to state 1
+            // 0 / 0, R to state 0
             if (tapeCells[it].symbol == "0") {
-                move("B", 1, 1);
+                move("0", 1, 0);
             }
-            // C, B / R to state 5 
+            // C / C, R to state 1
             else if (tapeCells[it].symbol == "C") {
-                move("B", 1, 5);
+                move("C", 1, 1);
             }
         }
 
         // STATE 1
         else if (state == 1) {
-            // 0, 0 / R to state 1
-            if (tapeCells[it].symbol == "0") {
-                move("0", 1, 1);
+            // X / X, R to state 1
+            if (tapeCells[it].symbol == "X") {
+                move("X", 1, 1);
             }
-            // C, C / R to state 2
-            else if (tapeCells[it].symbol == "C") {
-                move("C", 1, 2);
+            // 0 / X, L to state 2
+            else if (tapeCells[it].symbol == "0") {
+                move("X", -1, 2);
+            }
+            // B / B, L to state 5
+            else if (tapeCells[it].symbol == "B") {
+                
+                move("B", -1, 5);
             }
         }
 
         // STATE 2
         else if (state == 2) {
-            // 0, 0 / R to state 2
-            if (tapeCells[it].symbol == "0") {
-                move("0", 1, 2);
+            // X / X, L to state 2
+            if (tapeCells[it].symbol == "X") {
+                move("X", -1, 2);
             }
-            // B, 0 / L to state 3
-            else if (tapeCells[it].symbol == "B") {
-                move("0", -1, 3, 1);
+            // C / C, L to state 3
+            else if (tapeCells[it].symbol == "C") {
+                move("C", -1, 3);
             }
         }
 
@@ -102,26 +107,34 @@ function executeNextMove() {
             if (tapeCells[it].symbol == "0") {
                 move("0", -1, 3);
             }
-            // C, C / L to state 4
-            else if (tapeCells[it].symbol == "C") {
-                move("C", -1, 4);
+            // B / B, R to state 4
+            else if (tapeCells[it].symbol == "B") {
+                move("B", 1, 4);
             }
         }
 
         // STATE 4
         else if (state == 4) {
-            // 0, 0 / L to state 4
+            // 0 / B, R to state 0
             if (tapeCells[it].symbol == "0") {
-                move("0", -1, 4);
-            }
-            // B, B / R to state 0
-            else if (tapeCells[it].symbol == "B") {
                 move("B", 1, 0);
+            }            
+        }
+
+        // STATE 5
+        else if (state == 5) {
+            // X / B, L to state 5
+            if (tapeCells[it].symbol == "X") {
+                move("B", -1, 5);
+            }
+            // C / B, L to state 6
+            else if (tapeCells[it].symbol == "C") {
+                move("B", -1, 6);
             }
         }
 
-        // STATE 5 (FINAL STATE)
-        else if (state == 5) {
+        // STATE 6 (FINAL STATE)
+        else if (state == 6) {
             // Selesai
             executePause();
             tmTape.childNodes[it].className += " active";
