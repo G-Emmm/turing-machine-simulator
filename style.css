@@ -77,11 +77,14 @@ body {
   margin-bottom: 10px;
   padding: 0.5em 1em;
   font-size: 20pt;
-  background-color: rgb(205, 119, 231);
+  background-color: #ffc8b0;
   color: Black;
+  font-weight: bold;
   border-radius: 50%;
-  border: 1px solid #9000ff;
+  border: 1px solid #ad43ff;
 }
 .active {
-  background-color: #ffc8b0;
+  background-color: rgb(128, 48, 150);
+  color: #ffe7e1;
+  border: 1px solid rgb(153, 0, 255);
 }
