@@ -44,9 +44,13 @@ body {
   width: 20px;
 }
 
+#opLog {
+  width: 60px;
+}
+
 #equal {
   margin: 5px;
-  width: 50px;
+  width: 66px;
 }
 
 .tmTape-wrapper {
@@ -81,6 +85,3 @@ body {
 .active {
   background-color: #ffc8b0;
 }
-/*.result {
-    background-color: #FFFFFF;
-}*/

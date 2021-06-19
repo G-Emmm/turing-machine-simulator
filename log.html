@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Turing Machine Simulator - Penjumlahan</title>
+    <title>Turing Machine Simulator - Logaritma Biner</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
@@ -14,13 +14,12 @@
   </head>
   <body>
     <div class="cont">
-      <div class="title"><h1>Logaritma Biner (wip)</h1></div>
+      <div class="title"><h1>Logaritma Biner</h1></div>
 
       <div class="">
-        <h3>Format Input: 0<sup>m</sup>C0<sup>n</sup> | Format Output: 0<sup>m+n</sup> (blm diganti)</h3>
-        <input type="number" name="num1" id="num1" autocomplete="off" />
-        <input type="text" id="op" value="log" readonly />
-        <input type="number" name="num2" id="num2" autocomplete="off" /><br />
+        <h3>Format Input: 1<sup>n</sup> | Format Output: 1<sup>Log<sub>2</sub>(n)</sup></h3>
+        <input type="text" id="opLog" value="Log_2" readonly />
+        <input type="number" name="num1" id="num1" autocomplete="off" /><br />
         <button id="equal" class="btn btn-outline-dark" onmousedown="execute()">input</button>
         <h3>Hasil hitung: <span id="ans">0</span></h3>
       </div>
@@ -39,7 +38,7 @@
 
       <script src="js/tapebuilder.js"></script>
       <script src="js/commonfunc.js"></script>
-      <!-- <script src="js/jumlah.js"></script> -->
+      <script src="js/log.js"></script>
     </div>
   </body>
 </html>
