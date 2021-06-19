@@ -67,16 +67,16 @@ function move(newSymbol, arah, newState, isPushing){
 
     // Activate cell
     tmTape.childNodes[it].className += " active";
-    tmTape.childNodes[it].scrollIntoView();
+    tmTape.childNodes[it + 1].scrollIntoView();
 
     // Change state
     state = newState;
 
-    // Ke Kanan or Ke Kiri
+    // Ke Kanan or Ke Kiri or Stay
     if(arah == 1){
         it++;
     }
-    else{
+    else if(arah == -1){
         it--;
     }
 }
