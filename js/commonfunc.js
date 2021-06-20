@@ -10,6 +10,34 @@ function disableButton(index) {
   controller[index].style.backgroundColor = "black";
 }
 
+function determineSpeed(){
+  let speed1 = document.getElementById("025");
+  let speed2 = document.getElementById("050");
+  let speed3 = document.getElementById("100");
+  let speed4 = document.getElementById("200");
+  let speed5 = document.getElementById("400");
+  let speed6 = document.getElementById("800");
+
+  if(speed1.checked == true){
+    return 800;
+  }
+  else if(speed2.checked == true){
+    return 400;
+  }
+  else if(speed3.checked == true){
+    return 200;
+  }
+  else if(speed4.checked == true){
+    return 100;
+  }
+  else if(speed5.checked == true){
+    return 50;
+  }
+  else if(speed6.checked == true){
+    return 25;
+  }
+}
+
 // play button
 function executePlay() {
   // Enable button pause
@@ -20,7 +48,7 @@ function executePlay() {
   disableButton(2);
   disableButton(3);
 
-  looper = setInterval(executeNextMove, 200); // do next move every .2 sec
+  looper = setInterval(executeNextMove, determineSpeed()); // do next move every .2 sec
 }
 
 // pause button
