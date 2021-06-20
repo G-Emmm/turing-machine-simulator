@@ -53,6 +53,42 @@ body {
   width: 66px;
 }
 
+.spdbtn h3 {
+  margin-top: 20px;
+}
+
+#speed-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffc8b0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ddb09c;
+}
+
+.spdlabel {
+  padding: 6px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 8px 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.spdlabel:hover,
+.spdlabel:focus-within {
+  background: rgba(#9f9f9f, 0.1);
+}
+
 .tmTape-wrapper {
   max-width: 1500px;
   min-height: 95px;
@@ -84,6 +120,7 @@ body {
   border: 1px solid #9000ff;
   font-weight: normal;
 }
+
 .active {
   background-color: #ffc8b0;
   font-weight: bolder;
