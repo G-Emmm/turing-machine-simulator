@@ -138,21 +138,7 @@ function executeNextMove() {
 
         // STATE 6 (FINAL STATE)
         else if (state == 6) {
-            // Selesai
-            executePause();
-            tmTape.childNodes[it].className += " active";
-            tmTape.childNodes[it].scrollIntoView();
-
-            // Enable button clear
-            enableButton(3);
-
-            // Disable button play, pause, nextmove
-            disableButton(0);
-            disableButton(1);
-            disableButton(2);
-
-            // Show answer
-            showAns();
+            reachedEndState();
         }
     }
 }

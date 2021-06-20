@@ -130,6 +130,27 @@ function move(newSymbol, arah, newState, isPushing) {
   }
 }
 
+function reachedEndState(){
+  // Selesai
+  executePause();
+  tmTape.childNodes[it].className += " active";
+  tmTape.childNodes[it].scrollIntoView();
+
+  // Disable speed option
+  disableSpeed();
+
+  // Enable button clear
+  enableButton(3);
+
+  // Disable button play, pause, nextmove
+  disableButton(0);
+  disableButton(1);
+  disableButton(2);
+
+  // Show answer
+  showAns();
+}
+
 let i; // iteration for loop
 let curCell; // current cell
 let it; // ++ kekanan, -- kekiri
