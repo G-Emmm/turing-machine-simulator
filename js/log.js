@@ -3,9 +3,12 @@ let num1 = document.getElementById("num1");     // Number 1
 // tampilkan tape
 function execute() {
     // jika kondisi terpenuhi
-    if (num1.value && num1.value >= 0) {
+    if (num1.value && parseInt(num1.value) > 0) {
         // Clear
         executeClear();
+
+        // Enable speed option
+        enableSpeed();
 
         // Enable button play, nextmove, clear
         enableButton(0);
@@ -230,21 +233,7 @@ function executeNextMove() {
 
         // STATE 12 (FINAL STATE)
         else if (state == 12) {
-            // Selesai
-            executePause();
-            tmTape.childNodes[it].className += " active";
-            tmTape.childNodes[it].scrollIntoView();
-
-            // Enable button clear
-            enableButton(3);
-
-            // Disable button play, pause, nextmove
-            disableButton(0);
-            disableButton(1);
-            disableButton(2);
-
-            // Show answer
-            showAns();
+            reachedEndState();
         }
     }
 }
