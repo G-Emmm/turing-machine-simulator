@@ -10,14 +10,25 @@ function disableButton(index) {
   controller[index].style.backgroundColor = "black";
 }
 
-function determineSpeed(){
-  let speed1 = document.getElementById("025");
-  let speed2 = document.getElementById("050");
-  let speed3 = document.getElementById("100");
-  let speed4 = document.getElementById("200");
-  let speed5 = document.getElementById("400");
-  let speed6 = document.getElementById("800");
+function enableSpeed(){
+  speed1.disabled = false;
+  speed2.disabled = false;
+  speed3.disabled = false;
+  speed4.disabled = false;
+  speed5.disabled = false;
+  speed6.disabled = false;
+}
 
+function disableSpeed(){
+  speed1.disabled = true;
+  speed2.disabled = true;
+  speed3.disabled = true;
+  speed4.disabled = true;
+  speed5.disabled = true;
+  speed6.disabled = true;
+}
+
+function determineSpeed(){
   if(speed1.checked == true){
     return 800;
   }
@@ -40,6 +51,9 @@ function determineSpeed(){
 
 // play button
 function executePlay() {
+  // Disable speed option
+  disableSpeed();
+
   // Enable button pause
   enableButton(1);
 
@@ -53,6 +67,9 @@ function executePlay() {
 
 // pause button
 function executePause() {
+  // Enable speed option
+  enableSpeed();
+
   // Enable button play, next move, clear
   enableButton(0);
   enableButton(2);
@@ -70,6 +87,9 @@ function executeClear() {
   // tmTape to null and tapeCells to null
   tmTape.innerHTML = "";
   tapeCells = [];
+
+  // Disable speed option
+  disableSpeed();
 
   // Disable all buttons
   disableButton(0);
@@ -118,3 +138,9 @@ let looper; // untuk play
 let tapeCells = []; // Isi tape turing machine
 const tmTape = document.getElementById("tmTape"); // Turing machine tape
 const controller = document.querySelectorAll(".controller"); // Button controller
+let speed1 = document.getElementById("025");
+let speed2 = document.getElementById("050");
+let speed3 = document.getElementById("100");
+let speed4 = document.getElementById("200");
+let speed5 = document.getElementById("400");
+let speed6 = document.getElementById("800");

@@ -17,12 +17,13 @@
       <div class="title"><h1>Penjumlahan</h1></div>
 
       <div class="">
-        <h3>Format Input: 0<sup>m</sup>C0<sup>n</sup> | Format Output: 0<sup>m+n</sup></h3>
-        <input type="number" name="num1" id="num1" autocomplete="off" />
+        <h3>Input adalah bilangan bulat non-negatif</h3>
+        <input type="number" name="num1" id="num1" autocomplete="off" placeholder="m"/>
         <input type="text" id="op" value="+" readonly />
-        <input type="number" name="num2" id="num2" autocomplete="off" /><br />
+        <input type="number" name="num2" id="num2" autocomplete="off" placeholder="n"/><br />
         <button id="equal" class="btn btn-outline-dark" onmousedown="execute()">input</button>
-        <h3>Hasil hitung: <span id="ans">0</span></h3>
+        <h3>Hasil hitung: <span id="ans">0</span></h3><br>
+        <h3>Format Input: 0<sup>m</sup>C0<sup>n</sup> | Format Output: 0<sup>m+n</sup></h3>
       </div>
 
       <div class="tmTape-wrapper" id="tmTape">
@@ -39,22 +40,22 @@
 
       <div class="">
         <h3>Pilih Speed</h3><br>
-        <input type="radio" name="playSpeed" id="025">
+        <input type="radio" name="playSpeed" id="025" disabled>
         <label for="025">0.25x</label>
         <br>
-        <input type="radio" name="playSpeed" id="050">
+        <input type="radio" name="playSpeed" id="050" disabled>
         <label for="050">0.5x</label>
         <br>
-        <input type="radio" name="playSpeed" id="100" checked>
+        <input type="radio" name="playSpeed" id="100" disabled checked>
         <label for="100">1.0x</label>
         <br>
-        <input type="radio" name="playSpeed" id="200">
+        <input type="radio" name="playSpeed" id="200" disabled>
         <label for="200">2.0x</label>
         <br>
-        <input type="radio" name="playSpeed" id="400">
+        <input type="radio" name="playSpeed" id="400" disabled>
         <label for="400">4.0x</label>
         <br>
-        <input type="radio" name="playSpeed" id="800">
+        <input type="radio" name="playSpeed" id="800" disabled>
         <label for="800">8.0x</label>
         <br>
       </div>

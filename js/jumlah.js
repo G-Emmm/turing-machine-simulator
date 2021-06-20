@@ -4,9 +4,12 @@ let num2 = document.getElementById("num2");     // Number 2
 // tampilkan tape
 function execute() {
     // jika kondisi terpenuhi
-    if (num1.value && num2.value && num1.value >= 0 && num2.value >= 0) {
+    if (num1.value && num2.value && parseInt(num1.value) >= 0 && parseInt(num2.value) >= 0) {
         // Clear
         executeClear();
+
+        // Enable speed option
+        enableSpeed();
 
         // Enable button play, nextmove, clear
         enableButton(0);
