@@ -134,7 +134,7 @@ function reachedEndState(){
   // Selesai
   executePause();
   tmTape.childNodes[it].className += " active";
-  tmTape.childNodes[it].scrollIntoView();
+  tmTape.childNodes[it + 1].scrollIntoView();
 
   // Disable speed option
   disableSpeed();
